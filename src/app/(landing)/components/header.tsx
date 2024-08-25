@@ -1,13 +1,10 @@
 'use client';
-import { Button } from "@/components/ui/button";
-import { Sheet, SheetClose, SheetContent, SheetDescription, SheetFooter, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
+import { Sheet, SheetClose, SheetContent, SheetFooter, SheetTrigger } from "@/components/ui/sheet";
 import { ChevronRight, Menu, X } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-export default function Header({ scrollToSection }: any) {
-    const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+export default function Header() {
     const [scrolled, setScrolled] = useState(false);
 
     useEffect(() => {
