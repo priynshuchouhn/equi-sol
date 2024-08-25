@@ -6,7 +6,7 @@ function USP() {
   return (
     <div className='p-8 grid lg:grid-cols-2'>
       <div className='lg:order-first order-last'>
-        <h2 className='text-5xl text-center font-semibold '>
+        <h2 className='text-4xl lg:text-5xl text-center font-semibold '>
           <span className="pointer-events-none whitespace-pre-wrap bg-gradient-to-r from-indigo-400 to-purple-800 dark:from-indigo-500 dark:to-purple-500 bg-clip-text text-center font-semibold leading-none text-transparent ">
             Why Choose us ?
           </span>

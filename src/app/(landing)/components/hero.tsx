@@ -22,7 +22,7 @@ function Hero() {
                             y: [20, -5, 0],
                         }}
                         transition={{
-                            duration: 0.5,
+                            duration: 0.2,
                             ease: [0.4, 0.0, 0.2, 1],
                         }}
                         className="text-xl px-4 md:text-4xl lg:text-5xl font-bold text-neutral-700 dark:text-white max-w-5xl leading-relaxed lg:leading-snug text-center mx-auto ">
