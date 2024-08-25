@@ -4,8 +4,8 @@ import { USPFeatures } from './usp-features';
 
 function USP() {
   return (
-    <div className='p-8 grid grid-cols-2'>
-      <div>
+    <div className='p-8 grid lg:grid-cols-2'>
+      <div className='lg:order-first order-last'>
         <h2 className='text-5xl text-center font-semibold '>
           <span className="pointer-events-none whitespace-pre-wrap bg-gradient-to-r from-indigo-400 to-purple-800 dark:from-indigo-500 dark:to-purple-500 bg-clip-text text-center font-semibold leading-none text-transparent ">
             Why Choose us ?
@@ -13,7 +13,7 @@ function USP() {
         </h2>
         <USPFeatures />
       </div>
-      <div className="relative flex h-[500px] w-full flex-col items-center justify-center overflow-hidden rounded-lg">
+      <div className="relative flex h-[500px] flex-col items-center justify-center overflow-hidden rounded-lg">
         <span className='pointer-events-none whitespace-pre-wrap bg-gradient-to-b from-indigo-600 to-purple-900 bg-clip-text text-center font-semibold leading-none text-transparent dark:from-white dark:to-black text-3xl'>EquiSol</span>
         {/* Inner Circles */}
         <OrbitingCircles
@@ -36,7 +36,7 @@ function USP() {
         {/* Outer Circles (reverse) */}
         <OrbitingCircles
           className="size-[50px] border-none bg-transparent"
-          radius={190}
+          radius={160}
           duration={20}
           reverse
         >
@@ -44,7 +44,7 @@ function USP() {
         </OrbitingCircles>
         <OrbitingCircles
           className="size-[50px] border-none bg-transparent"
-          radius={190}
+          radius={160}
           duration={20}
           delay={20}
           reverse

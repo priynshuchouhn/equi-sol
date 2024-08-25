@@ -1,3 +1,4 @@
+import Footer from "./components/footer";
 import Header from "./components/header";
 import Hero from "./components/hero";
 import USP from "./components/usp";
@@ -8,6 +9,7 @@ export default function Home() {
       <Header/>
       <Hero />
       <USP/>
+      <Footer/>
     </main>
   );
 }
