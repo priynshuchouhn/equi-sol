@@ -3,6 +3,7 @@ import { BorderBeam } from "@/components/magicui/border-beam"
 import { BackgroundGradient } from "@/components/ui/background-gradient"
 import { Button } from "@/components/ui/button"
 import { CardSpotlight } from "@/components/ui/card-spotlight"
+import { Verified } from "lucide-react"
 import Image from "next/image"
 
 export default async function Profile() {
@@ -11,7 +12,7 @@ export default async function Profile() {
 
 
     return (
-        <div className="flex flex-col items-center justify-center h-[60dvh]">
+        <div className="flex flex-col items-center justify-center h-[60dvh] p-2">
             <div className="relative flex h-auto w-full max-w-md flex-col items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl">
                 <div className="rounded-2xl w-full max-w-md p-6 md:p-8">
                     <div className="flex flex-col items-center">
@@ -24,7 +25,7 @@ export default async function Profile() {
                             style={{ aspectRatio: "160/160", objectFit: "cover" }}
                         />
                         <div className="text-center space-y-1">
-                            <h2 className="text-2xl font-bold text-foreground">{user?.name}</h2>
+                            <h2 className="text-2xl font-bold text-foreground flex items-center gap-1">{user?.name} <Verified className="text-white fill-green-500 h-7 w-7"/></h2>
                             <p className="text-muted-foreground">{user?.email}</p>
                         </div>
                         <div className="mt-6">

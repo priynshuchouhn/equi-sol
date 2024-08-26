@@ -1,6 +1,9 @@
 import type { NextAuthConfig } from 'next-auth';
 import prisma from '@/lib/db';
 
+
+
+
 async function saveUserToDatabase(userInfo:any) {
   const existingUser = await prisma.user.findUnique({
     where: { email: userInfo.email },
@@ -52,6 +55,12 @@ export const authConfig = {
       }
       return false;
     },
+    async session({ session, user, token }) {
+      return session
+    },
+    async jwt({ token, user, account, profile, }) {
+      return token
+    }
   },
   providers: [], // Add providers with an empty array for now
 } satisfies NextAuthConfig;
