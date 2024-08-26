@@ -1,10 +1,25 @@
 import type { NextAuthConfig } from 'next-auth';
- 
+
 export const authConfig = {
-  // pages: {
-  //   signIn: '/login',
-  // },
+  pages: {
+    signIn: '/login',
+  },
   callbacks: {
+    async signIn({ user, account, profile }) {
+      // This callback is triggered on successful sign-in.
+      console.log(user, account, profile)
+      const userData = {
+        name: user.name,
+        email: user.email,
+        image: user.image,
+        provider: account?.provider,
+        providerAccountId: account?.providerAccountId,
+      };
+
+      // await saveUserToDatabase(userData);
+
+      return true;
+    },
     authorized({ auth, request: { nextUrl } }) {
       const isLoggedIn = !!auth?.user;
       const isOnDashboard = nextUrl.pathname.startsWith('/dashboard');

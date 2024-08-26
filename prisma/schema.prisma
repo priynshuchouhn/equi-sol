@@ -1,0 +1,72 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("POSTGRES_PRISMA_URL") // uses connection pooling
+  directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
+}
+
+model User {
+  userId                Int                     @id @default(autoincrement())
+  email                 String                  @unique
+  password              String
+  name                  String
+  companies             Company[] // Relationship with Company
+  createdAt             DateTime                @default(now())
+  updatedAt             DateTime                @updatedAt
+  NFT                   NFT[]
+  BlockchainTransaction BlockchainTransaction[]
+}
+
+model Company {
+  companyId         Int      @id @default(autoincrement())
+  name              String
+  description       String
+  registeredBy      Int // User who registered the company
+  user              User     @relation(fields: [registeredBy], references: [userId])
+  blockchainAddress String // Blockchain address of the company on Solana
+  totalShares       Int // Total shares of the company (on-chain)
+  nftCollectionId   String // Reference to the NFT collection for shares
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+  NFT               NFT[]
+}
+
+model NFT {
+  nftId                 Int                     @id @default(autoincrement())
+  tokenId               String                  @unique // Unique ID of the NFT (share)
+  companyId             Int // The company whose share this NFT represents
+  company               Company                 @relation(fields: [companyId], references: [companyId])
+  ownerId               Int // User who owns the NFT
+  owner                 User                    @relation(fields: [ownerId], references: [userId])
+  blockchainAddress     String // Blockchain address of the NFT on Solana
+  metadataUri           String // URI for NFT metadata (e.g., IPFS link)
+  createdAt             DateTime                @default(now())
+  updatedAt             DateTime                @updatedAt
+  BlockchainTransaction BlockchainTransaction[]
+}
+
+model BlockchainTransaction {
+  transactionId   Int             @id @default(autoincrement())
+  transactionHash String          @unique // Blockchain transaction hash
+  userId          Int // User who initiated the transaction
+  user            User            @relation(fields: [userId], references: [userId])
+  nftId           Int // NFT involved in the transaction
+  nft             NFT             @relation(fields: [nftId], references: [nftId])
+  transactionType TransactionType // Enum for Buy/Sell
+  timestamp       DateTime // Timestamp of the blockchain transaction
+  createdAt       DateTime        @default(now())
+}
+
+enum TransactionType {
+  BUY
+  SELL
+}
