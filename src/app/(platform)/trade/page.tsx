@@ -10,13 +10,13 @@ import { Checkbox } from "@/components/ui/checkbox"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
-import { Sheet, SheetClose, SheetContent, SheetFooter, SheetTrigger } from "@/components/ui/sheet"
+import { Sheet, SheetClose, SheetContent, SheetFooter, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
 import { Filter } from "lucide-react"
 
 export default function Component() {
     return (
         <div className="flex flex-col min-h-screen">
-            <div className="bg-gray-200 py-4 px-6">
+            <div className="bg-gray-200 py-4 px-6 mt-2">
                 <div className="flex items-center justify-center gap-6">
                     <Link href="#" className="hover:underline" prefetch={false}>
                         Explore
@@ -107,6 +107,7 @@ export default function Component() {
                                         <Filter className="h-6 w-6" aria-hidden="true" />
                                     </Button>
                                 </SheetTrigger>
+                                <SheetTitle/>
                                 <SheetContent side={'right'}>
                                     <h3 className="text-lg font-semibold mb-4">Filters</h3>
                                     <Accordion type="single" collapsible>

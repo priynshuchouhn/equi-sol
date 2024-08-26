@@ -87,7 +87,7 @@ export default function Component() {
                                 required
                             />
                         </div>
-                        <div className=" col-span-2">
+                        <div className="lg:col-span-2">
                             <Label htmlFor="description">Company Description</Label>
                             <Textarea
                                 id="description"

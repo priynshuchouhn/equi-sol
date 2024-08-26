@@ -1,6 +1,6 @@
 'use client';
 import ScrollLink from "@/components/ui/scroll-link";
-import { Sheet, SheetClose, SheetContent, SheetFooter, SheetTrigger } from "@/components/ui/sheet";
+import { Sheet, SheetClose, SheetContent, SheetFooter, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { ChevronRight, Menu, X } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -43,6 +43,7 @@ export default function Header() {
                                 <Menu className="h-6 w-6" aria-hidden="true" />
                             </button>
                         </SheetTrigger>
+                        <SheetTitle/>
                         <SheetContent>
                             <div className="mt-6 flow-root">
                                 <div className="-my-6 divide-y divide-gray-500/10">
@@ -57,9 +58,9 @@ export default function Header() {
                                                 How it Works?
                                             </SheetClose>
                                         </ScrollLink>
-                                        <span className="block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
+                                        <Link  href={'/about'} className="block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
                                             About us
-                                        </span>
+                                        </Link>
                                     </div>
                                     <div className="py-6">
                                         <Link href={false ? '/dashboard' : '/login'} className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">

@@ -1,4 +1,7 @@
 import { signIn } from "@/auth"
+import { BorderBeam } from "@/components/magicui/border-beam"
+import ShineBorder from "@/components/magicui/shine-border"
+import { BackgroundGradient } from "@/components/ui/background-gradient"
 import { Button } from "@/components/ui/button"
 import { ChevronLeft } from "lucide-react"
 import Link from "next/link"
@@ -7,24 +10,26 @@ export default function Component() {
     return (
         <>
             <div className="px-5 pt-2">
-                <Link href="/"><Button variant={'ghost'}><ChevronLeft/> Home</Button></Link>
+                <Link href="/"><Button variant={'ghost'}><ChevronLeft /> Home</Button></Link>
             </div>
-            <div className="flex min-h-[100dvh] flex-col items-center justify-center bg-background px-4 py-12 sm:px-6 lg:px-8">
-                <div className="mx-auto max-w-md space-y-4 text-center">
-                    <div className="space-y-2">
-                        <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">Welcome to EquiSol</h1>
-                        <p className="text-muted-foreground">Sign in to access your account.</p>
+            <div className="flex min-h-[90dvh] flex-col items-center justify-center bg-background px-4 py-12 sm:px-6 lg:px-8">
+                <ShineBorder className="relative flex h-[300px] w-full max-w-md flex-col items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl" color={["#A07CFE", "#FE8FB5", "#FFBE7B"]}>
+                    <div className="mx-auto max-w-md space-y-4 text-center">
+                        <div className="space-y-2">
+                            <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">Welcome to EquiSol</h1>
+                            <p className="text-muted-foreground">Sign in to access your account.</p>
+                        </div>
+                        <form action={async () => {
+                            "use server"
+                            await signIn("google", { redirectTo: "/dashboard" })
+                        }}>
+                            <Button variant="outline" className="flex w-full items-center justify-center gap-2 rounded-md border border-input bg-background px-4 py-2 text-sm font-medium shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50">
+                                <ChromeIcon className="h-5 w-5" />
+                                Sign in with Google
+                            </Button>
+                        </form>
                     </div>
-                    <form action={async () => {
-                        "use server"
-                        await signIn("google", { redirectTo: "/dashboard" })
-                    }}>
-                        <Button variant="outline" className="flex w-full items-center justify-center gap-2 rounded-md border border-input bg-background px-4 py-2 text-sm font-medium shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50">
-                            <ChromeIcon className="h-5 w-5" />
-                            Sign in with Google
-                        </Button>
-                    </form>
-                </div>
+                </ShineBorder>
             </div>
         </>
     )
