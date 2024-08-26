@@ -95,7 +95,9 @@ async function Header() {
             <DropdownMenuContent>
               <DropdownMenuLabel>My Account</DropdownMenuLabel>
               <DropdownMenuSeparator />
-              <DropdownMenuItem>Profile</DropdownMenuItem>
+              <DropdownMenuItem>
+                <Link href={'/profile'}>Profile</Link>
+              </DropdownMenuItem>
               <DropdownMenuItem>
                 <form action={async () => {
                   'use server'

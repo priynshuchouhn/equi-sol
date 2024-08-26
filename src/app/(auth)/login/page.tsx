@@ -14,7 +14,7 @@ export default function Component() {
             </div>
             <div className="flex min-h-[90dvh] flex-col items-center justify-center bg-background px-4 py-12 sm:px-6 lg:px-8">
                 <ShineBorder className="relative flex h-[300px] w-full max-w-md flex-col items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl" color={["#A07CFE", "#FE8FB5", "#FFBE7B"]}>
-                    <div className="mx-auto max-w-md space-y-4 text-center">
+                    <div className="absolute mx-auto max-w-md space-y-4 text-center">
                         <div className="space-y-2">
                             <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">Welcome to EquiSol</h1>
                             <p className="text-muted-foreground">Sign in to access your account.</p>
