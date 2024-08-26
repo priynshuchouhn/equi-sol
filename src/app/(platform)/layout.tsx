@@ -11,7 +11,7 @@ function Layout({
             {/* Sidebar */}
             <Sidebar />
             {/* Main Content */}
-            <div className="ml-64 w-full ">
+            <div className="lg:ml-64 w-full ">
                 {/* Header */}
                 <Header />
                 <div className="mt-16">

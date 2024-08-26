@@ -13,6 +13,7 @@ import {
     TooltipProvider,
     TooltipTrigger,
 } from "@/components/ui/tooltip"
+import Link from 'next/link';
 
 export default function Component() {
     const [isLoading, setIsLoading] = useState(false)
@@ -55,7 +56,7 @@ export default function Component() {
     }
 
     return (
-        <div className='p-2'>
+        <div className='p-2 py-4'>
             <Card className="w-full mx-auto">
                 <CardHeader>
                     <CardTitle>Register Your Company</CardTitle>
@@ -165,9 +166,11 @@ export default function Component() {
                                 'Register Company'
                             )}
                         </Button>
+                        <Link href={'/company'}>
                         <Button type="button" variant={'destructive'} className="w-auto" disabled={isLoading}>
                             Cancel
                         </Button>
+                        </Link>
                         </div>
                     </CardFooter>
                 </form>

@@ -1,6 +1,8 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { TrendingUp, TrendingDown, BarChart2 } from "lucide-react"
+import { TrendingUp, TrendingDown, BarChart2, Plus } from "lucide-react"
+import { Button } from "@/components/ui/button"
+import Link from "next/link"
 
 // Mock data for demonstration
 const companies = [
@@ -57,7 +59,10 @@ const companies = [
 export default function Component() {
   return (
     <div className="p-4">
-      <h1 className="text-2xl font-bold mb-6">Your Companies</h1>
+      <div className="flex justify-between items-center mb-6">
+      <h1 className="text-2xl font-bold">Your Companies</h1>
+      <div><Link href={'/company/add'}><Button variant="outline" size={'sm'}><Plus className="h-4 w-4"/> Add new</Button></Link></div>
+      </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {companies.map((company) => (
           <Card key={company.symbol} className="overflow-hidden">
