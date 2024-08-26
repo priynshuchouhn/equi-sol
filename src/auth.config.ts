@@ -1,4 +1,24 @@
 import type { NextAuthConfig } from 'next-auth';
+import prisma from '@/lib/db';
+
+async function saveUserToDatabase(userInfo:any) {
+  const existingUser = await prisma.user.findUnique({
+    where: { email: userInfo.email },
+  });
+
+  if (!existingUser) {
+    // If the user doesn't exist, create a new record
+    await prisma.user.create({
+      data: {
+        name: userInfo.name,
+        email: userInfo.email,
+        profileImageUrl: userInfo.image,
+        provider: userInfo.provider,
+        providerAccountId: userInfo.providerAccountId,
+      },
+    });
+  }
+}
 
 export const authConfig = {
   pages: {
@@ -7,7 +27,7 @@ export const authConfig = {
   callbacks: {
     async signIn({ user, account, profile }) {
       // This callback is triggered on successful sign-in.
-      console.log(user, account, profile)
+      // console.log(user, account, profile)
       const userData = {
         name: user.name,
         email: user.email,
@@ -16,7 +36,7 @@ export const authConfig = {
         providerAccountId: account?.providerAccountId,
       };
 
-      // await saveUserToDatabase(userData);
+      await saveUserToDatabase(userData);
 
       return true;
     },

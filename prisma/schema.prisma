@@ -17,11 +17,14 @@ datasource db {
 model User {
   userId                Int                     @id @default(autoincrement())
   email                 String                  @unique
-  password              String
+  password              String?
+  profileImageUrl       String?
   name                  String
   companies             Company[] // Relationship with Company
   createdAt             DateTime                @default(now())
   updatedAt             DateTime                @updatedAt
+  provider              String?
+  providerAccountId     String?
   NFT                   NFT[]
   BlockchainTransaction BlockchainTransaction[]
 }
