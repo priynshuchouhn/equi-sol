@@ -1,3 +1,4 @@
+import { randomUUID } from 'crypto';
 import React, { useId } from 'react'
 
 const grid = [
@@ -41,7 +42,7 @@ const grid = [
 
 function Features() {
   return (
-    <div className="py-8 lg:py-10">
+    <div className="py-8 lg:py-10" id='features'>
        <h2 className='text-4xl lg:text-5xl text-center font-semibold mb-10'>
           <span className="pointer-events-none whitespace-pre-wrap bg-gradient-to-r from-indigo-400 to-purple-800 dark:from-indigo-500 dark:to-purple-500 bg-clip-text text-center font-semibold leading-none text-transparent ">
           Why Our Platform Stands Out
@@ -129,7 +130,7 @@ export const Grid = ({
             {squares.map(([x, y]: any) => (
               <rect
                 strokeWidth="0"
-                key={`${x}-${y}`}
+                key={`${x}-${y}-${randomUUID()}`}
                 width={width + 1}
                 height={height + 1}
                 x={x * width}

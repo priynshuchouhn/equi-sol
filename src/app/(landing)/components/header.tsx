@@ -1,4 +1,5 @@
 'use client';
+import ScrollLink from "@/components/ui/scroll-link";
 import { Sheet, SheetClose, SheetContent, SheetFooter, SheetTrigger } from "@/components/ui/sheet";
 import { ChevronRight, Menu, X } from "lucide-react";
 import Link from "next/link";
@@ -46,13 +47,17 @@ export default function Header() {
                             <div className="mt-6 flow-root">
                                 <div className="-my-6 divide-y divide-gray-500/10">
                                     <div className="space-y-2 py-6">
-                                        <span className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 cursor-pointer">
-                                            Features
-                                        </span>
-                                        <span className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
-                                            How it Works?
-                                        </span>
-                                        <span className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
+                                        <ScrollLink href={'#features'} className="block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
+                                            <SheetClose>
+                                                Features
+                                            </SheetClose>
+                                        </ScrollLink>
+                                        <ScrollLink href={'#how_it_works'} className="block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
+                                            <SheetClose>
+                                                How it Works?
+                                            </SheetClose>
+                                        </ScrollLink>
+                                        <span className="block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
                                             About us
                                         </span>
                                     </div>
@@ -63,28 +68,27 @@ export default function Header() {
                                     </div>
                                 </div>
                             </div>
-
-                            <SheetFooter>
+                            {/* <SheetFooter>
                                 <SheetClose asChild>
                                 </SheetClose>
-                            </SheetFooter>
+                            </SheetFooter> */}
                         </SheetContent>
                     </Sheet>
 
                 </div>
                 <div className="hidden lg:flex lg:gap-x-12">
-                    <span className="text-sm font-semibold leading-6 text-gray-900 cursor-pointer">
+                    <ScrollLink href={'#features'} className="text-sm font-semibold leading-6 text-gray-900 cursor-pointer">
                         Features
-                    </span>
-                    <span className="text-sm font-semibold leading-6 text-gray-900 cursor-pointer">
+                    </ScrollLink>
+                    <ScrollLink href={'#how_it_works'} className="text-sm font-semibold leading-6 text-gray-900 cursor-pointer">
                         How it Works?
-                    </span>
+                    </ScrollLink>
                     <span className="text-sm font-semibold leading-6 text-gray-900 cursor-pointer">
                         About us
                     </span>
                 </div>
                 <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-                    <Link href={false ? '/dashboard' : '/login'} className="text-sm font-semibold leading-6 text-gray-900">
+                    <Link href={true ? '/dashboard' : '/login'} className="text-sm font-semibold leading-6 text-gray-900">
                         {false ? 'Dashboard' : <span className="flex gap-1 items-center">Get Started<span><ChevronRight className="h-5" /></span></span>}
                     </Link>
                 </div>

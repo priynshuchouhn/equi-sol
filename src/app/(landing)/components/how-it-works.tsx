@@ -4,7 +4,7 @@ import { Timeline } from "@/components/ui/timeline";
 
 function HowItWorks() {
       return (
-        <div className="w-full">
+        <div className="w-full" id='how_it_works'>
           <Timeline data={grid} />
         </div>
       );

@@ -2,7 +2,7 @@ import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
 
 export function Testimonials() {
   return (
-    <div className="py-16">
+    <div className="py-16" id="testimonials">
     <h2 className='text-4xl lg:text-5xl text-center font-semibold mb-10'>
           <span className="pointer-events-none whitespace-pre-wrap bg-gradient-to-r from-indigo-400 to-purple-800 dark:from-indigo-500 dark:to-purple-500 bg-clip-text text-center font-semibold leading-none text-transparent ">
           What People Are Saying
