@@ -5,12 +5,12 @@ import React from 'react'
 
 function Sidebar() {
   return (
-    <div className="lg:block hidden w-64 bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700">
+    <div className="fixed top-0 left-0 h-full z-10 lg:block hidden w-64 bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700">
       <div className="flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-700">
         <span className="text-2xl font-semibold text-gray-800 dark:text-white">EquiSol</span>
-        <Button variant="ghost" size="icon">
+        {/* <Button variant="ghost" size="icon">
           <Menu className="h-6 w-6" />
-        </Button>
+        </Button> */}
       </div>
       <nav className="p-4">
         <ul className="space-y-2">

@@ -11,10 +11,12 @@ function Layout({
             {/* Sidebar */}
             <Sidebar />
             {/* Main Content */}
-            <div className="w-full ">
+            <div className="ml-64 w-full ">
                 {/* Header */}
                 <Header />
+                <div className="mt-16">
                 {children}
+                </div>
             </div>
         </div>
     );

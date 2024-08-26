@@ -1,5 +1,6 @@
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Button } from '@/components/ui/button'
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
 import { Input } from '@/components/ui/input'
 import { Sheet, SheetClose, SheetContent, SheetFooter, SheetTrigger } from '@/components/ui/sheet'
 import { Bell, ChevronDown, Menu, Settings } from 'lucide-react'
@@ -8,7 +9,7 @@ import React from 'react'
 
 function Header() {
   return (
-    <header className="flex items-center justify-between p-4 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
+    <header className="z-50 fixed top-0 w-full lg:w-[83%] flex items-center justify-between p-4 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
       <div className="hidden lg:flex items-center">
         <Input
           type="search"
@@ -68,11 +69,24 @@ function Header() {
           </Button>
         </div>
         <div className="flex items-center">
-          <Avatar>
-            <AvatarImage src="/placeholder.svg?height=32&width=32" alt="User" />
-            <AvatarFallback>JD</AvatarFallback>
-          </Avatar>
-          <ChevronDown className="h-4 w-4 ml-2" />
+          <DropdownMenu>
+            <DropdownMenuTrigger>
+              <div className='flex items-center'>
+              <Avatar>
+                <AvatarImage src="/placeholder.svg?height=32&width=32" alt="User" />
+                <AvatarFallback>PC</AvatarFallback>
+              </Avatar>
+              <ChevronDown className="h-4 w-4 ml-2" />
+              </div>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent>
+              <DropdownMenuLabel>My Account</DropdownMenuLabel>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem>Profile</DropdownMenuItem>
+              <DropdownMenuItem>Logout</DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+
         </div>
       </div>
     </header>
