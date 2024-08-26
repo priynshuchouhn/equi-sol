@@ -4,9 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "npx prisma migrate deploy && next build",
     "start": "next start",
-    "prismaDev": "dotenv -e .env.local prisma migrate dev ",
+    "prismaDev": "dotenv -e .env.local prisma migrate dev",
     "lint": "next lint"
   },
   "dependencies": {
