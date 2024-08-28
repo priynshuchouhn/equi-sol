@@ -2,6 +2,7 @@
 
 import { ButtonProps } from "@/components/ui/button";
 import { BaseWalletMultiButton } from "@solana/wallet-adapter-react-ui";
+import { useEffect, useState } from "react";
 const LABELS = {
     'change-wallet': 'Change wallet',
     connecting: 'Connecting ...',
@@ -12,5 +13,12 @@ const LABELS = {
     'no-wallet': 'Choose Wallet',
 } as const;
 export function ConnectWalletButton(props: ButtonProps) {
-    return <BaseWalletMultiButton {...props} labels={LABELS} />;
+    const [isClient, setIsClient] = useState(false)
+    useEffect(() => {
+        setIsClient(true)
+    }, [])
+    return (<>
+        {isClient && <BaseWalletMultiButton {...props} labels={LABELS} />}
+    </>
+    );
 }

@@ -1,10 +1,6 @@
 
 import { auth } from "@/auth"
 import { BorderBeam } from "@/components/magicui/border-beam"
-import { BackgroundGradient } from "@/components/ui/background-gradient"
-import { Button } from "@/components/ui/button"
-import { CardSpotlight } from "@/components/ui/card-spotlight"
-import { WalletMultiButton } from "@solana/wallet-adapter-react-ui"
 import { Verified } from "lucide-react"
 import Image from "next/image"
 import { ConnectWalletButton } from "./components/connect-wallet-button"
