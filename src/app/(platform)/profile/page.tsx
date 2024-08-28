@@ -8,6 +8,7 @@ import { WalletMultiButton } from "@solana/wallet-adapter-react-ui"
 import { Verified } from "lucide-react"
 import Image from "next/image"
 import { ConnectWalletButton } from "./components/connect-wallet-button"
+import { BalanceDisplay } from "./components/balance"
 
 export default async function Profile() {
     const session = await auth()
@@ -28,15 +29,16 @@ export default async function Profile() {
                             style={{ aspectRatio: "160/160", objectFit: "cover" }}
                         />
                         <div className="text-center space-y-1">
-                            <h2 className="text-2xl font-bold text-foreground flex items-center gap-1">{user?.name} <Verified className="text-white fill-green-500 h-7 w-7"/></h2>
+                            <h2 className="text-2xl font-bold text-foreground flex items-center gap-1">{user?.name} <Verified className="text-white fill-green-500 h-7 w-7" /></h2>
                             <p className="text-muted-foreground">{user?.email}</p>
                         </div>
+                        <BalanceDisplay />
                         <div className="mt-6">
                             {/* <Button variant="outline" className="w-full">
                                 <WalletIcon className="mr-2 h-4 w-4" />
                                 Connect Wallet
                             </Button> */}
-                             <ConnectWalletButton/>    
+                            <ConnectWalletButton className="bg-white" />
                         </div>
                     </div>
                 </div>
