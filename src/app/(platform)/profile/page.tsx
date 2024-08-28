@@ -1,10 +1,13 @@
+
 import { auth } from "@/auth"
 import { BorderBeam } from "@/components/magicui/border-beam"
 import { BackgroundGradient } from "@/components/ui/background-gradient"
 import { Button } from "@/components/ui/button"
 import { CardSpotlight } from "@/components/ui/card-spotlight"
+import { WalletMultiButton } from "@solana/wallet-adapter-react-ui"
 import { Verified } from "lucide-react"
 import Image from "next/image"
+import { ConnectWalletButton } from "./components/connect-wallet-button"
 
 export default async function Profile() {
     const session = await auth()
@@ -13,7 +16,7 @@ export default async function Profile() {
 
     return (
         <div className="flex flex-col items-center justify-center h-[60dvh] p-2">
-            <div className="relative flex h-auto w-full max-w-md flex-col items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl">
+            <div className="relative flex h-auto w-full max-w-md flex-col items-center justify-center rounded-lg border bg-background md:shadow-xl">
                 <div className="rounded-2xl w-full max-w-md p-6 md:p-8">
                     <div className="flex flex-col items-center">
                         <Image
@@ -29,10 +32,11 @@ export default async function Profile() {
                             <p className="text-muted-foreground">{user?.email}</p>
                         </div>
                         <div className="mt-6">
-                            <Button variant="outline" className="w-full">
+                            {/* <Button variant="outline" className="w-full">
                                 <WalletIcon className="mr-2 h-4 w-4" />
                                 Connect Wallet
-                            </Button>
+                            </Button> */}
+                             <ConnectWalletButton/>    
                         </div>
                     </div>
                 </div>
@@ -61,3 +65,4 @@ function WalletIcon(props: any) {
         </svg>
     )
 }
+
