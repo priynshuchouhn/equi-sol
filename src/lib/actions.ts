@@ -18,7 +18,6 @@ export async function registerCompany(companyName: string, description: string, 
                 nftCollectionId: 'null'
             }
         })
-        console.log(company)
         if(company){
             return true;
         }

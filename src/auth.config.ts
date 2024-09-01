@@ -38,7 +38,6 @@ export const authConfig = {
   callbacks: {
     async signIn({ user, account, profile }) {
       // This callback is triggered on successful sign-in.
-      // console.log(user, account, profile)
       const userData = {
         name: user.name,
         email: user.email,
@@ -48,7 +47,6 @@ export const authConfig = {
       };
 
       const DbUser = await saveUserToDatabase(userData);
-      console.log(user, DbUser)
 
       return true;
     },
@@ -93,5 +91,5 @@ export const authConfig = {
       return token;
     }
   },
-  providers: [], // Add providers with an empty array for now
+  providers: [], 
 } satisfies NextAuthConfig;
