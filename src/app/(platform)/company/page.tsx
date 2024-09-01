@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import prisma from '@/lib/db'
 import { auth } from "@/auth"
+import SolanaExplorerLink from "@/components/ui/solana-explorer-link"
 
 // Mock data for demonstration
 const companies = [
@@ -105,7 +106,7 @@ export default async function Component() {
                 </div>
                 <div className="col-span-2">
                   <p className="text-muted-foreground">Address:</p>
-                  <p className="text-xs font-medium text-wrap">{company.blockchainAddress}</p>
+                  <SolanaExplorerLink address={company.blockchainAddress}/>
                 </div>
               </div>
             </CardContent>
