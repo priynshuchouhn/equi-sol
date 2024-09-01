@@ -1,0 +1,207 @@
+{
+  "address": "EYkmzAxdQ6ivpuPJRQG25nwgp2aA6ZHLfv4iMz3fw72r",
+  "name": "equisol",
+  "version": "0.1.0",
+  "metadata": {
+    "name": "equisol",
+    "version": "0.1.0",
+    "spec": "0.1.0",
+    "description": "Created with Anchor"
+  },
+  "instructions": [
+    {
+      "name": "initialize_program",
+      "discriminator": [
+        176,
+        107,
+        205,
+        168,
+        24,
+        157,
+        175,
+        103
+      ],
+      "accounts": [
+        {
+          "name": "registry",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "user",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "initialize_registry",
+      "discriminator": [
+        189,
+        181,
+        20,
+        17,
+        174,
+        57,
+        249,
+        59
+      ],
+      "accounts": [
+        {
+          "name": "registry",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "user",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "register_company",
+      "discriminator": [
+        109,
+        51,
+        247,
+        199,
+        229,
+        252,
+        157,
+        222
+      ],
+      "accounts": [
+        {
+          "name": "company",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "registry",
+          "writable": true
+        },
+        {
+          "name": "user",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "initial_supply",
+          "type": "u64"
+        },
+        {
+          "name": "initial_price",
+          "type": "u64"
+        },
+        {
+          "name": "symbol",
+          "type": "string"
+        }
+      ]
+    }
+  ],
+  "accounts": [
+    {
+      "name": "Company",
+      "discriminator": [
+        32,
+        212,
+        52,
+        137,
+        90,
+        7,
+        206,
+        183
+      ]
+    },
+    {
+      "name": "CompanyRegistry",
+      "discriminator": [
+        27,
+        30,
+        241,
+        213,
+        171,
+        175,
+        54,
+        176
+      ]
+    }
+  ],
+  "errors": [
+    {
+      "code": 6000,
+      "name": "AlreadyInitialized",
+      "msg": "The registry has already been initialized."
+    }
+  ],
+  "types": [
+    {
+      "name": "Company",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "name": "initial_supply",
+            "type": "u64"
+          },
+          {
+            "name": "initial_price",
+            "type": "u64"
+          },
+          {
+            "name": "symbol",
+            "type": "string"
+          },
+          {
+            "name": "owner",
+            "type": "pubkey"
+          },
+          {
+            "name": "share_mint",
+            "type": "pubkey"
+          }
+        ]
+      }
+    },
+    {
+      "name": "CompanyRegistry",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "companies",
+            "type": {
+              "vec": "pubkey"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

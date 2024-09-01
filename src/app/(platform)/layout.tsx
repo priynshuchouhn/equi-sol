@@ -1,5 +1,6 @@
 import Header from "./components/header";
 import Sidebar from "./components/sidebar";
+import { Toaster } from 'react-hot-toast';
 
 function Layout({
     children,
@@ -16,6 +17,7 @@ function Layout({
                 <Header />
                 <div className="mt-16">
                 {children}
+                <Toaster />
                 </div>
             </div>
         </div>
